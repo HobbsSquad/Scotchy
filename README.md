@@ -50,9 +50,10 @@ Homepage:
 
 Cabinet:
 
-<img src="cabinet/home.png">
+<img src="screenshots/cabinet.png">
 
 Scotch Details:
 
-<img src="scotch-detail/home.png">
+<img src="screenshots/scotch-detail.png">
+
 
