@@ -9,7 +9,7 @@ This is my first attempt at building a MEAN app.  I took up scotch as a hobby ab
 Technically, this is really a MEN app as I haven't Angular-i-fied it yet.  The font-end is strictly EJS. Stay tuned for a new Angular version!
 
 <strong>Install</strong><br>
-Being a fairly basic MEaN application, installation should be fairly straightforward, assuming you alread have Node and npm installed:  
+Being a fairly basic MEaN application, installation should be fairly straightforward, assuming you alread have Node, npm, and MongoDB installed:  
 
 1) Grab the repository
 2) Go to Scotchy's root folder
