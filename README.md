@@ -1,7 +1,7 @@
 # Scotchy
 <em>A fair bonnie app for tracking a lad or lassie's scotching</em>
 
-Your host and mascot:
+Your host and mascot:<br><br>
 <img src="screenshots/angus.png">
 
 This is my first attempt at building a MEAN app.  I took up scotch as a hobby about the same time I started learning the MEAN stack. Worlds collided and this is the result.
