@@ -41,3 +41,9 @@ You can record an unlimited number of notes for each scotch in your cabinet. The
 <h4>Summary</h4>
 
 That's all there is to it! A simple app that is your digital notebook/diary as you explore the wonderful world of scotch.
+
+<h4>Screenshots</h4>
+
+Homepage:
+
+<img src="screenshots/home.png">
