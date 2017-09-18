@@ -38,6 +38,6 @@ With Scotchy, you can record an unlimited number of personal tastings for any sc
 
 You can record an unlimited number of notes for each scotch in your cabinet. These notes are like a general diary of activies, reminders, or personal information that you want to add to specific members of your cabinet. You can record purchases, maybe document where you first heard about the scotch.  Document when you killed the bottle.  Drams shared with friends.  Anything not related to a tasting, really.
 
-<h4>Summery</h4>
+<h4>Summary</h4>
 
 That's all there is to it! A simple app that is your digital notebook/diary as you explore the wonderful world of scotch.
