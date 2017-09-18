@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+
+        Please confirm that you want to delete <%= scotch.dramName %>:
+        <form action="/scotches/delete/<%= scotch._id %>" method="post">
+            <div>
+                <td colspan="2"><input type="submit" value="Delete it" class="submit"/></td>
+            </div>
+        </form>
+        <% include ../partials/footer %>
+    </body>
+</html>

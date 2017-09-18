@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+        
+        <form action="/scotches/create" method="post">
+            <table class="form">
+                <tr>
+                    <td><label class="form-label">Distiller Name:</label></td>
+                    <td><input type="text" name="distillerName" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Flavor:</label></td>
+                    <td><input type="text" name="flavor"  class="form-label"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Age:</label></td>
+                    <td><input type="text" name="age"  class="form-label"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Style:</label></td>
+                    <td>
+                        <input type="radio" "style" name="style" value="Single Malt" checked class="form-radio"/>Single Malt<br>
+                        <input type="radio" "style" name="style" value="Blend" class="form-radio"/>Blend
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Region:</label></td>
+                    <td>
+                        <select name="region" class="form-select"/>
+                            <option value="Speyside">Speyside</option>
+                            <option value="Highland">Highland</option>
+                            <option value="Islay">Islay</option>
+                            <option value="Island">Island</option>
+                            <option value="Scotch">Scotch</option>
+                            <option value="Lowland">Lowland</option>
+                            <option value="Campbeltown">Campbeltown</option>
+                            <option value="Other">Other</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">In Stock:</label></td>
+                    <td>
+                        <select name="inStock"  class="form-select"/>
+                        <option value=1>Yes</option>
+                        <option value=0>No</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Comment:</label></td>
+                    <td><textarea name="comment" class="form-textarea" rows="15" cols="75"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Add it!" class="submit"/></td>
+                </tr>
+            </table>
+        </form>
+        <% include ../partials/footer %>
+    </body>
+</html>

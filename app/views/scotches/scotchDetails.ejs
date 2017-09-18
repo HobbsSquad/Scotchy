@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+        
+        <div class="scotch-rating">
+            <% for(var i=0; i < scotch.rating; i++) { %>
+                &#9733;
+            <% } %>
+            
+            <% for (var j=0; j < 5 - scotch.rating; j++) { %>
+                &#9734;
+            <% } %>
+        </div>
+        <% if (scotch.inStock) { %>
+            <div class="in-stock">
+                In stock: <span class="check-mark">&#10004;</span>
+            </div>
+        <% } else { %>
+            <div class="in-stock">
+                In stock: <span class="red-x">&#9746;</span>
+            </div>
+        <% } %>
+        
+        <div class="scotch-details">
+            <div class="scotch-detail-label">Style:</div>
+            <div class="scotch-detail-data"><%= scotch.style %></div>
+            <div class="scotch-detail-label">Region:</div>
+            <div class="scotch-detail-data"><%= scotch.region %></div>
+            <!-- <div class="scotch-detail-label">Comment:</div>  -->
+        </div>
+        <div class="scotch-detail-comment">
+            <%- scotch.comment %>
+        </div>
+        
+        <!-- NOTES  -->
+        
+        <div class="section-label">
+            Notes
+        </div>
+        <form action="/scotches/newScotchNote/<%= scotch._id %>" method="get">
+            <input type="submit" value="Add" class="submit"/>
+        </form>
+
+        <table class="table-scotch-notes">
+            <thead>
+                <th>Date</th>
+                <th>Note</th>
+                <th colspan="2"></th>
+            </thead>
+            <% scotch.notes.forEach(function(note) { %>
+                <tr>
+                    <td class="odd date"><%= (note.dateAdded.getMonth()+1) + '/' + note.dateAdded.getDate() + '/' + note.dateAdded.getFullYear()%></td>
+                    <td class="odd"><%= note.note %></td>
+                    <td class="odd buttons">
+                        <form action="/updateScotchNote/<%= scotch._id %>" method="post">
+                            <input type="submit" value="Edit" class="submit"/>
+                        </form>
+                    </td>
+                    <td class="odd buttons">
+                        <form action="/deleteScotchNote/<%= scotch._id %>" method="post">
+                            <input type="submit" value="Delete" class="submit"/>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+        
+        <!-- TASTINGS  -->
+        
+        <div class="section-label">
+            Tastings
+        </div>
+        <form action="/scotches/newScotchTasting/<%= scotch._id %>" method="get">
+            <input type="submit" value="Add" class="submit"/>
+        </form>        
+        <table class="table-scotch-notes">
+            <thead>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </thead>
+            <% scotch.tastings.forEach(function(tasting) { %>
+                <tr>
+                    <td class="odd date"><%= tasting.dateAdded.getMonth() + '/' + tasting.dateAdded.getDate() + '/' + tasting.dateAdded.getFullYear()%></td>
+                    <td  class="odd"><%= tasting.location %></td>
+                    <td  class="odd">
+                        <% for(var i=0; i<tasting.rating; i++) { %>
+                            &#9733;
+                        <% } %>
+                    </td>
+                    <td  class="odd"><%= tasting.comment %></td>
+                </tr>
+            <% }); %>
+        </table>
+
+        <!-- WISHLISTS  -->
+        
+        <div class="section-label">
+            Wish Lists
+        </div>
+        <form action="/scotches/newScotchWishList/<%= scotch._id %>" method="get">
+            <input type="submit" value="Add" class="submit"/>
+        </form>        
+
+        <table class="table-scotch-notes">
+            <thead>
+                <th>WishLists</th>
+                <th colspan="2"></th>
+            </thead>
+            <% scotch.wishLists.forEach(function(wishList) { %>
+                <tr>
+                    <td class="odd"><%= wishList %></td>
+                    <td class="odd buttons">
+                        <form action="/deleteScotchWishList/<%= scotch._id %>" method="post">
+                            <input type="submit" value="Delete" class="submit"/>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+        
+        <% include ../partials/footer %>
+    </body>
+</html>

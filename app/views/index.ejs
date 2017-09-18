@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./partials/head %>
+    </head>
+    <body>
+        <nav class="" role="navigation">
+            <div class="page-header">
+                <span class="page-title" style="margin-left: 10px"><%= pageTitle %></span>
+                <span class="page-subtitle">A fair bonnie app for managing a lad or lassie's scotching</span>
+                
+            </div>
+        </nav>
+        <div id="logo">
+            <img src="img/logo.png" height=200px width=200px alt="Logo"><br>
+            <span class="caption">Angus McScotchy, III</span>
+        </div>
+            <% if ( userFullName ) { %>
+                <% include ./partials/navbar %>
+            <% } else { %>
+                <% include ./partials/login-navbar %>
+            <% } %>
+        <% include ./partials/footer %>
+    </body>
+</html>

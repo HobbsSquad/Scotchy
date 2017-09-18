@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+
+
+        <div class="section-label">
+            Scotches
+        </div>
+
+        <table class="table-scotch-notes">
+            <thead>
+                <th></th>
+            </thead>
+            <% scotches.forEach(function(scotch) { %>
+                <tr>
+                    <td class="odd"><a href="/scotches/<%= scotch._id %>"><%= scotch.dramName %></a></td>
+                </tr>
+            <% }); %>
+        </table>
+
+        <% include ../partials/footer %>
+    </body>
+</html>

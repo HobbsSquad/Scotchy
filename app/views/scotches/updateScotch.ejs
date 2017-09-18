@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+        
+        <form action="/scotches/update/<%= scotch._id %>" method="post">
+            <table class="form">
+                <tr>
+                    <td><label class="form-label">Distiller Name:</label></td>
+                    <td><input type="text" name="distillerName" value="<%= scotch.distillerName %>" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Flavor:</label></td>
+                    <td><input type="text" name="flavor" value="<%= scotch.flavor %>" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Age:</label></td>
+                    <td><input type="text" name="age" value="<%= scotch.age %>" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Style:</label></td>
+                    <td>
+                        <input type="radio" "style" name="style" value="Single Malt" <% if (scotch.style === 'Single Malt') { %> checked <% } %> class="form-radio"/>Single Malt<br>
+                        <input type="radio" "style" name="style" value="Blended" <% if (scotch.style === 'Blended') { %> checked <% } %> class="form-radio"/>Blended
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Region:</label></td>
+                    <td>
+                        <select name="region" class="form-select"/>
+                            <option value="Speyside" <% if (scotch.region === 'Speyside') { %> selected <% } %> >Speyside</option>
+                            <option value="Highland" <% if (scotch.region === 'Highland') { %> selected <% } %> >Highland</option>
+                            <option value="Islay" <% if (scotch.region === 'Islay') { %> selected <% } %> >Islay</option>
+                            <option value="Island" <% if (scotch.region === 'Island') { %> selected <% } %> >Island</option>
+                            <option value="Scotch" <% if (scotch.region === 'Scotch') { %> selected <% } %> >Scotch</option>
+                            <option value="Lowland" <% if (scotch.region === 'Lowland') { %> selected <% } %> >Lowland</option>
+                            <option value="Campbeltown" <% if (scotch.region === 'Campbeltown') { %> selected <% } %> >Campbeltown</option>
+                            <option value="Other" <% if (scotch.region === 'Other') { %> selected <% } %> >Other</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">In Stock:</label></td>
+                    <td>
+                        <select name="inStock"  class="form-select"/>
+                            <option value=1 <% if (scotch.inStock) { %> selected <% } %> >Yes</option>
+                            <option value=0 <% if (!scotch.inStock) { %> selected <% } %> >No</option>
+                    </td>
+                </tr>                
+                <tr>
+                    <td><label class="form-label">Comment:</label></td>
+                    <td><textarea name="comment" class="form-textarea" rows="15" cols="75"><%= scotch.comment %></textarea></td>
+                </tr>
+                <div>
+                    <td colspan="2"><input type="submit" value="Update it!" class="submit"/></td>
+                </div>
+            </table>
+        </form>
+        <% include ../partials/footer %>
+    </body>
+</html>

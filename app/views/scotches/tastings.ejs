@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <table>
+            <tr>
+                <td><h3>Contents:</h3></td>
+                <td style="padding-left: 5px">
+<!--                    <form action="/scotches/new" method="post">
+                        <input type="submit" value="New" class="submit"/>
+                    </form>
+                </td>  -->
+            </tr>
+        </table>
+        <table class="table-scotch-notes">
+            <thead>
+                <th>Scotch</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Rating</th>
+                <th>Comments</th>
+            </thead>
+            <% tastings.forEach(function(tasting) { %>
+                <tr>
+                    <td></td>
+                    <td><%= tasting.dateAdded %></td>
+                    <td><%= tasting.location %></td>
+                    <td>
+                        <% for(var i=0; i < tasting.rating; i++) { %>
+                            &#9733;
+                        <% } %>
+                    </td>
+                    <td><%= tasting.comment %></td>
+                </tr>
+            <% }); %>
+        </table>
+        <% include ../partials/footer %>
+    </body>
+</html>

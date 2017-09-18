@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./partials/head %>
+    </head>
+    <body>
+        <% include ./partials/header %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+
+        <form action="/signup" method="post">
+            <table class="form">
+                <tr>
+                    <td><label class="form-label">First Name:</label></td>
+                    <td><input type="text" name="firstName" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Last Name:</label></td>
+                    <td><input type="text" name="lastName" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Email:</label></td>
+                    <td><input type="text" name="email" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Username:</label></td>
+                    <td><input type="text" name="username" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Password:</label></td>
+                    <td><input type="password" name="password" class="input-password"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Sign up" class="submit"/></td>
+                </tr>
+            </table>
+        </form>
+        <div class="navbar"></div>
+        <% include ./partials/footer %>
+    </body>
+</html>

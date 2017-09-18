@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <table>
+            <tr>
+                <td><h3>Wish Lists:</h3></td>
+                <td style="padding-left: 5px">
+                    <form action="/wishLists/new" method="post">
+                        <input type="submit" value="New" class="submit"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <% result.forEach(function(wishList) { %>
+                <tr>
+                    <td><a href="/wishLists/<%= wishList._id %>"><%= wishList.wishListName %></a></td>
+                    <td>
+                        <form action="/wishLists/update/<%= wishList._id %>" method="get">
+                            <input type="submit" value="Edit" class="submit"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/wishLists/delete/<%= wishList._id %>" method="post">
+                            <input type="submit" value="Delete" class="submit"/>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+        <% include ../partials/footer %>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+        
+        <%= scotch.dramName %>
+        
+        <form action="/scotches/newScotchWishList/<%= scotch._id %>" method="post">
+            <table class="form">
+                <tr>
+                    <td><label class="form-label">Wish List:</label></td>
+                    <td><input type="text" name="wishListName" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Add it!" class="submit"/></td>
+                </tr>
+            </table>
+        </form>
+        <% include ../partials/footer %>
+    </body>
+</html>

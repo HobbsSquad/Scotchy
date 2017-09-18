@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <% include ../partials/navbar %>
+
+        <% for(var i in messages) { %>
+            <div class="flash"><%= messages[i] %></div>
+        <% } %>
+        
+        <%= scotch.dramName %>
+        
+        <form action="/scotches/newScotchTasting/<%= scotch._id %>" method="post">
+            <table class="form">
+                <tr>
+                    <td><label class="form-label">Date:</label></td>
+                    <td><input type="text" name="dateAdded" class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Location:</label></td>
+                    <td><input type="text" name="location"  class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Rating:</label></td>
+                    <td><input type="text" name="rating"  class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Comments:</label></td>
+                    <td><input type="text" name="comment"  class="input-text"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Add it!" class="submit"/></td>
+                </tr>
+            </table>
+        </form>
+        <% include ../partials/footer %>
+    </body>
+</html>
