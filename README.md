@@ -47,3 +47,12 @@ That's all there is to it! A simple app that is your digital notebook/diary as y
 Homepage:
 
 <img src="screenshots/home.png">
+
+Cabinet:
+
+<img src="cabinet/home.png">
+
+Scotch Details:
+
+<img src="scotch-detail/home.png">
+
